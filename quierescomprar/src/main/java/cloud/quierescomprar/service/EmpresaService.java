@@ -8,5 +8,5 @@ public interface EmpresaService {
 
 	public Empresa consultarEmpresa(@WebParam(name = "codigoEmpresa") String codigoEmpresa);
 	
-//public String registrarEmpresa(@WebParam(name = "empresa")Empresa empresa;
+    public String registrarEmpresa(@WebParam(name = "CodigoEmpresa") String codigoEmpresa) ;
 }
