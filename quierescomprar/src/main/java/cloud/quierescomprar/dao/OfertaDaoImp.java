@@ -10,7 +10,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import cloud.quierescomprar.model.Oferta;
-import cloud.quierescomprar.model.Producto;
+
 import cloud.quierescomprar.util.HibernateUtil;
 
 
@@ -27,7 +27,7 @@ public class OfertaDaoImp implements OfertaDao{
 		
 		List<Oferta> listaOfertas=null;
 		Query q= null;
-		q=sesion.createQuery("from Oferta o where :fechaActual between o.fecIniOfe and o.fecFinOfe and o.flgAct='A'");
+		q=sesion.createQuery("from Oferta o join fetch o.empresa e where :fechaActual between o.fechaInicio and o.fechaFin");
 	    Date newDate=new Date();
 		q.setDate("fechaActual", newDate);
 		listaOfertas=q.list();
