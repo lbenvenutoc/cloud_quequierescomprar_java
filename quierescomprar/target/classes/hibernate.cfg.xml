@@ -6,9 +6,9 @@
 		<property name="connection.useUnicode">true</property>
 		<property name="connection.characterEncoding">UTF-8</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_quierescomprar_ws</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_quequierescomprar_empresa</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.password">admin</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
 
 		<property name="current_session_context_class">org.hibernate.context.ManagedSessionContext</property>
@@ -19,12 +19,12 @@
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 		<property name="jdbc.use_get_generated_keys">false</property>
 
-
-		<mapping class="cloud.quierescomprar.model.Producto" />
 		
-		
+		<!--Aqui se hace referencia a las clases  -->
 		<mapping class="cloud.quierescomprar.model.Oferta" />
-		 
+		<mapping class="cloud.quierescomprar.model.Empresa" />
+		<mapping class="cloud.quierescomprar.model.OfertaVenta" />
+		<mapping class="cloud.quierescomprar.model.Usuario" />
 		 
 		
 		

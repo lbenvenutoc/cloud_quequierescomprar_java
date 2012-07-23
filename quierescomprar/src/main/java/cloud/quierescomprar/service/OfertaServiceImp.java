@@ -5,6 +5,8 @@ import java.util.List;
 import cloud.quierescomprar.dao.OfertaDao;
 import cloud.quierescomprar.dao.OfertaDaoImp;
 import cloud.quierescomprar.model.Oferta;
+import cloud.quierescomprar.model.OfertaVenta;
+
 import javax.jws.WebService;
 
 
@@ -18,6 +20,12 @@ public class OfertaServiceImp implements OfertaService{
 	
 	public List<Oferta> listaOfertas(){
 		return dao.listaOfertas();
+	}
+
+
+	public int registroOfertaVenta(OfertaVenta objOfertaVenta) {
+	
+		return dao.registroOfertaVenta(objOfertaVenta);
 	}
 	
 	
