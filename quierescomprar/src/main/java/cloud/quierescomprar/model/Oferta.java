@@ -1,6 +1,6 @@
 package cloud.quierescomprar.model;
 
-// Generated 22/07/2012 10:45:08 AM by Hibernate Tools 3.4.0.CR1
+// Generated 22/07/2012 08:18:53 PM by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
 import java.util.Date;

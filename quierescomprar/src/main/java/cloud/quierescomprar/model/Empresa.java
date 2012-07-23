@@ -1,6 +1,6 @@
 package cloud.quierescomprar.model;
 
-// Generated 22/07/2012 10:45:08 AM by Hibernate Tools 3.4.0.CR1
+// Generated 22/07/2012 08:18:53 PM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +23,6 @@ public class Empresa implements java.io.Serializable {
 	private String razonSocial;
 	private Set<Oferta> ofertas = new HashSet<Oferta>(0);
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
-	
 
 	public Empresa() {
 	}

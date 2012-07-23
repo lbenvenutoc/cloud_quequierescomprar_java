@@ -1,6 +1,6 @@
 package cloud.quierescomprar.model;
 
-// Generated 22/07/2012 10:45:08 AM by Hibernate Tools 3.4.0.CR1
+// Generated 22/07/2012 08:18:53 PM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -11,25 +11,19 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class OfertaVentaId implements java.io.Serializable {
 
-	private short CEmpresa;
 	private String COferta;
 	private short linea;
+	private String emailUsuario;
+	private short CEmpresa;
 
 	public OfertaVentaId() {
 	}
 
-	public OfertaVentaId(short CEmpresa, String COferta, short linea) {
-		this.CEmpresa = CEmpresa;
+	public OfertaVentaId(String COferta, short linea, String emailUsuario,
+			short CEmpresa) {
 		this.COferta = COferta;
 		this.linea = linea;
-	}
-
-	@Column(name = "C_EMPRESA", nullable = false)
-	public short getCEmpresa() {
-		return this.CEmpresa;
-	}
-
-	public void setCEmpresa(short CEmpresa) {
+		this.emailUsuario = emailUsuario;
 		this.CEmpresa = CEmpresa;
 	}
 
@@ -51,6 +45,24 @@ public class OfertaVentaId implements java.io.Serializable {
 		this.linea = linea;
 	}
 
+	@Column(name = "EMAIL_USUARIO", nullable = false, length = 40)
+	public String getEmailUsuario() {
+		return this.emailUsuario;
+	}
+
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
+	}
+
+	@Column(name = "C_EMPRESA", nullable = false)
+	public short getCEmpresa() {
+		return this.CEmpresa;
+	}
+
+	public void setCEmpresa(short CEmpresa) {
+		this.CEmpresa = CEmpresa;
+	}
+
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -60,20 +72,28 @@ public class OfertaVentaId implements java.io.Serializable {
 			return false;
 		OfertaVentaId castOther = (OfertaVentaId) other;
 
-		return (this.getCEmpresa() == castOther.getCEmpresa())
-				&& ((this.getCOferta() == castOther.getCOferta()) || (this
-						.getCOferta() != null && castOther.getCOferta() != null && this
-						.getCOferta().equals(castOther.getCOferta())))
-				&& (this.getLinea() == castOther.getLinea());
+		return ((this.getCOferta() == castOther.getCOferta()) || (this
+				.getCOferta() != null && castOther.getCOferta() != null && this
+				.getCOferta().equals(castOther.getCOferta())))
+				&& (this.getLinea() == castOther.getLinea())
+				&& ((this.getEmailUsuario() == castOther.getEmailUsuario()) || (this
+						.getEmailUsuario() != null
+						&& castOther.getEmailUsuario() != null && this
+						.getEmailUsuario().equals(castOther.getEmailUsuario())))
+				&& (this.getCEmpresa() == castOther.getCEmpresa());
 	}
 
 	public int hashCode() {
 		int result = 17;
 
-		result = 37 * result + this.getCEmpresa();
 		result = 37 * result
 				+ (getCOferta() == null ? 0 : this.getCOferta().hashCode());
 		result = 37 * result + this.getLinea();
+		result = 37
+				* result
+				+ (getEmailUsuario() == null ? 0 : this.getEmailUsuario()
+						.hashCode());
+		result = 37 * result + this.getCEmpresa();
 		return result;
 	}
 

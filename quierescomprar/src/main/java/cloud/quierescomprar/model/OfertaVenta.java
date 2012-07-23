@@ -1,6 +1,6 @@
 package cloud.quierescomprar.model;
 
-// Generated 22/07/2012 10:45:08 AM by Hibernate Tools 3.4.0.CR1
+// Generated 22/07/2012 08:18:53 PM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -38,9 +38,10 @@ public class OfertaVenta implements java.io.Serializable {
 
 	@EmbeddedId
 	@AttributeOverrides({
-			@AttributeOverride(name = "CEmpresa", column = @Column(name = "C_EMPRESA", nullable = false)),
 			@AttributeOverride(name = "COferta", column = @Column(name = "C_OFERTA", nullable = false, length = 6)),
-			@AttributeOverride(name = "linea", column = @Column(name = "LINEA", nullable = false)) })
+			@AttributeOverride(name = "linea", column = @Column(name = "LINEA", nullable = false)),
+			@AttributeOverride(name = "emailUsuario", column = @Column(name = "EMAIL_USUARIO", nullable = false, length = 40)),
+			@AttributeOverride(name = "CEmpresa", column = @Column(name = "C_EMPRESA", nullable = false)) })
 	public OfertaVentaId getId() {
 		return this.id;
 	}
