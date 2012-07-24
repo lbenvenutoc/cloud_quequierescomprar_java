@@ -15,6 +15,11 @@ public interface OfertaDao {
 	public List<Oferta> listaOfertas();
 	public int registroOfertaVenta(OfertaVenta objOfertaVenta);
 	public List<Oferta> listaOfertasTotal();
+
 	
+// Codigo Kid Rivera
+	
+	public List<Oferta> ListaOfertasPorVencer();
+	//public List<OfertaVenta> ListaOfertasMasVendidas();
 	
 }

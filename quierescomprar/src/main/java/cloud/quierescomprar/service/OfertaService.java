@@ -21,4 +21,7 @@ public interface OfertaService {
 	
 	public int registroOfertaVenta(@WebParam(name="objOfertaVenta") OfertaVenta objOfertaVenta);
 	
+	// Codigo Kid Rivera
+	
+
 }
