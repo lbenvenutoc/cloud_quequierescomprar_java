@@ -17,7 +17,7 @@ import cloud.quierescomprar.service.OfertaServiceImp;
 
 public class OfertaWebServiceTest {
 	
-	
+	/*
 	@Test
 	public void testListaOfertas() {
 		OfertaServiceImp servicio= new OfertaServiceImp();
@@ -63,5 +63,23 @@ public class OfertaWebServiceTest {
 		OfertaServiceImp servicio= new OfertaServiceImp();
 		Assert.assertEquals(1, servicio.registroOfertaVenta(objOfertaVenta));
 	}
-
+*/
+	@Test
+	public void testListaOfertasVencer(){
+		OfertaServiceImp servicio= new OfertaServiceImp();
+		Assert.assertEquals(1, servicio.listaOfertasPorVencer(8).size());
+		
+		//IMPRESION DE RESULTADOS EN CONSOLA
+		for(Oferta objOferta:servicio.listaOfertasPorVencer(8))
+		{
+			
+			System.out.println("EMPRESA "+objOferta.getEmpresa().getRuc()+"-"+objOferta.getEmpresa().getRazonSocial());
+			System.out.println("DESCRIPCION OFERTA "+objOferta.getDescripcion());
+			System.out.println("PRECIO "+objOferta.getPrecio());
+			System.out.println("DESCUENTO "+objOferta.getDescuento());
+			System.out.println("PRECIO OFERTA "+(objOferta.getPrecio().doubleValue()*objOferta.getDescuento().doubleValue()));
+			
+		}
+	
+	}
 }

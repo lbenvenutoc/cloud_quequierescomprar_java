@@ -19,7 +19,7 @@ public interface OfertaDao {
 	
 // Codigo Kid Rivera
 	
-	public List<Oferta> ListaOfertasPorVencer();
+	public List<Oferta> listaOfertasPorVencer(int dias);
 	//public List<OfertaVenta> ListaOfertasMasVendidas();
 	
 }
