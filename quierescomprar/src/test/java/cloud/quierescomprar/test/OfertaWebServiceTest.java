@@ -37,8 +37,6 @@ public class OfertaWebServiceTest {
 	
 	}
 	
-
-	
 	
 	@Test
 	public void testRegistroOferta(){
