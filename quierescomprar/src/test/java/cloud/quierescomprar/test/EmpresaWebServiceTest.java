@@ -23,8 +23,7 @@ public class EmpresaWebServiceTest {
 		
 		//IMPRESION DE RESULTADOS EN CONSOLA
 		for(Empresa objEmpresa:servicio.listaEmpresas())
-		{
-			
+		{			
 			System.out.println("C_EMPRESA "+objEmpresa.getCEmpresa());
 			System.out.println("RUC "+objEmpresa.getRuc());
 			System.out.println("Razon Social "+objEmpresa.getRazonSocial());
