@@ -4,7 +4,7 @@ import java.util.List;
 
 import cloud.quierescomprar.model.Empresa;
 import cloud.quierescomprar.dao.EmpresaDao;
-import cloud.quierescomprar.dao.EmpresaDaoImpl;
+import cloud.quierescomprar.dao.EmpresaDaoImp;
 
 import javax.jws.WebService;
 
@@ -12,18 +12,31 @@ import javax.jws.WebService;
 
 public class EmpresaServiceImp implements EmpresaService {
 	
-	EmpresaDaoImpl dao= new EmpresaDaoImpl();
+	EmpresaDaoImp dao= new EmpresaDaoImp();
 	
-	public List<Empresa> listaEmpresas() {
+	public Empresa ObtenerEmpresa(Empresa objEmpresa) {
+    	// TODO Auto-generated method stub
+	return dao.obtenerEmpresa(objEmpresa);
+    }
+
+    public Empresa obtenerEmpresaxRuc(Empresa objEmpresa) {
+    	// TODO Auto-generated method stub
+	return dao.obtenerEmpresaxRuc(objEmpresa);
+    }
+    
+	public int registrarEmpresa(Empresa objEmpresa) {
 		// TODO Auto-generated method stub
-		return dao.listaEmpresa();
+		return dao.registrarEmpresa(objEmpresa);
 	}
+
+    public List<Empresa> listaEmpresas() {
+	// TODO Auto-generated method stub
+	return dao.listaEmpresas();
+    }
 
 	public int registroEmpresa(Empresa objEmpresa) {
 		// TODO Auto-generated method stub
-		return dao.registroEmpresa(objEmpresa);
+		return 0;
 	}
-
-}
-
+    }
 
