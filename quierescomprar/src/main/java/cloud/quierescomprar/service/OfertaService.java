@@ -22,6 +22,7 @@ public interface OfertaService {
 	public int registroOfertaVenta(@WebParam(name="objOfertaVenta") OfertaVenta objOfertaVenta);
 	
 	// Codigo Kid Rivera
+	public List<Oferta> listaOfertasPorVencer(@WebParam(name="dias") int dias);
 	
-
+	
 }

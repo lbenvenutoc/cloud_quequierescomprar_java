@@ -28,5 +28,7 @@ public class OfertaServiceImp implements OfertaService{
 		return dao.registroOfertaVenta(objOfertaVenta);
 	}
 	
-	
+	public List<Oferta> listaOfertasPorVencer(int dias){
+		return dao.listaOfertasPorVencer(dias);
+	}
 }
