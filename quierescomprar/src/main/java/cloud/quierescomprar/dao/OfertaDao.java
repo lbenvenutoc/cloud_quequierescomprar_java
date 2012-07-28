@@ -12,10 +12,10 @@ public interface OfertaDao {
 	
 	
 	
-	public List<Oferta> listaOfertas();
-	public int registroOfertaVenta(OfertaVenta objOfertaVenta);
-	public List<Oferta> listaOfertasTotal();
-
+	public String[] listaOfertasDelDia();
+	public int registroOfertaVenta(int codEmpresa,String codOferta,int codLinea,String email,String codMedioPago);
+	
+	
 	
 // Codigo Kid Rivera
 	

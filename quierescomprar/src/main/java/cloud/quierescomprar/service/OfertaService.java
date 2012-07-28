@@ -16,10 +16,14 @@ import cloud.quierescomprar.model.OfertaVenta;
 @WebService
 public interface OfertaService {
 	
-	@WebResult(name="ofertas")
-	public List<Oferta> listaOfertas();
+	//Método del servicio que lista las ofertas del día.
+	@WebResult(name="ofertasDelDia")
+	public String[] listaOfertasDelDia();
 	
-	public int registroOfertaVenta(@WebParam(name="objOfertaVenta") OfertaVenta objOfertaVenta);
+	//Método del servicio que registra una oferta venta en la base de datos.
+	public int registroOfertaVenta(@WebParam(name="codEmpresa")int codEmpresa,@WebParam(name="codOferta")String codOferta,
+			@WebParam(name="codLinea")int codLinea,@WebParam(name="email")String email,
+			@WebParam(name="codMedioPago")String codMedioPago);
 	
 	// Codigo Kid Rivera
 	public List<Oferta> listaOfertasPorVencer(@WebParam(name="dias") int dias);

@@ -10,35 +10,60 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import cloud.quierescomprar.model.Oferta;
+import cloud.quierescomprar.model.OfertaId;
 import cloud.quierescomprar.model.OfertaVenta;
+import cloud.quierescomprar.model.OfertaVentaId;
+import cloud.quierescomprar.model.Usuario;
+import cloud.quierescomprar.model.UsuarioId;
 import cloud.quierescomprar.util.HibernateUtil;
 
 
 
 public class OfertaDaoImp implements OfertaDao{
 
-	public List<Oferta> listaOfertas() {
+public  String[] listaOfertasDelDia() {
 		
-		Session sesion = HibernateUtil.getSessionFactory();
-			
+	Session sesion = HibernateUtil.getSessionFactory();
+		
+		
 		List<Oferta> listaOfertas=null;
 		Query q= null;
 		q=sesion.createQuery("from Oferta o join fetch o.empresa e where :fechaActual between o.fechaInicio and o.fechaFin");
 	    Date newDate=new Date();
 		q.setDate("fechaActual", newDate);
+		
 		listaOfertas=q.list();
 		
-		return listaOfertas;
+		String[] listaOfertasString=new String[listaOfertas.size()] ;
+		int i=0;
+		for(Oferta objOferta:listaOfertas){
+			listaOfertasString[i]=
+			objOferta.getEmpresa().getRuc()+"-"+objOferta.getEmpresa().getRazonSocial()+"#"
+					+objOferta.getDescripcion()+"#"
+					+objOferta.getPrecio()+"#"
+					+objOferta.getDescuento()+"#"
+					+(objOferta.getPrecio().doubleValue()-objOferta.getPrecio().doubleValue()*objOferta.getDescuento().doubleValue());
+			i++;
+			
+		}
+		
+		return listaOfertasString;
 		
 	}
 
-	public int registroOfertaVenta(OfertaVenta objOfertaVenta) {
+	public int registroOfertaVenta(int codEmpresa,String codOferta,int codLinea,String email,String codMedioPago) {
 		Session sesion = HibernateUtil.getSessionFactory();
 		
 		int retorno=0;
 		Transaction tx = null;
 		try {
 			tx = sesion.beginTransaction();
+			
+			OfertaVenta objOfertaVenta = new OfertaVenta();
+			objOfertaVenta.setId(new OfertaVentaId(codOferta, (short)codLinea, email, (short)codEmpresa));
+			objOfertaVenta.setOferta(new Oferta(new OfertaId((short)codEmpresa, codOferta), null, null, null, null, null, null));
+			objOfertaVenta.setUsuario(new Usuario(new UsuarioId((short)codEmpresa, email), null, null, null, null, null, null, null, null, null));
+			objOfertaVenta.setCodMedioPago(codMedioPago);
 			sesion.save(objOfertaVenta);
 		
 			tx.commit();
@@ -54,20 +79,8 @@ public class OfertaDaoImp implements OfertaDao{
 		return retorno;
 		
 	}
-
-	public List<Oferta> listaOfertasTotal() {
-		Session sesion = HibernateUtil.getSessionFactory();
-		
-		
-		List<Oferta> listaOfertas=null;
-		Query q= null;
-		q=sesion.createQuery("from Oferta o join fetch o.empresa e");
-	   
-		listaOfertas=q.list();
-		
-		return listaOfertas;
-	}
-
+	
+	
 	
 // Código Kid Rivera
 	

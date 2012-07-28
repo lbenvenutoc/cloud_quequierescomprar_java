@@ -17,51 +17,37 @@ import cloud.quierescomprar.service.OfertaServiceImp;
 
 public class OfertaWebServiceTest {
 	
-	/*
+	
 	@Test
-	public void testListaOfertas() {
+	public void testListaOfertasDelDia() {
 		OfertaServiceImp servicio= new OfertaServiceImp();
-		Assert.assertEquals(1, servicio.listaOfertas().size());
+		Assert.assertEquals(2, servicio.listaOfertasDelDia().length);
 		
 		//IMPRESION DE RESULTADOS EN CONSOLA
-		for(Oferta objOferta:servicio.listaOfertas())
-		{
-			
-			System.out.println("EMPRESA "+objOferta.getEmpresa().getRuc()+"-"+objOferta.getEmpresa().getRazonSocial());
-			System.out.println("DESCRIPCION OFERTA "+objOferta.getDescripcion());
-			System.out.println("PRECIO "+objOferta.getPrecio());
-			System.out.println("DESCUENTO "+objOferta.getDescuento());
-			System.out.println("PRECIO OFERTA "+(objOferta.getPrecio().doubleValue()*objOferta.getDescuento().doubleValue()));
+		String fila="";
+		for(int i=0;i<servicio.listaOfertasDelDia().length;i++){
+			fila=servicio.listaOfertasDelDia()[i];
+			String[]celdas=fila.split("#");
+			for(int j=0;j<celdas.length;j++){
+				System.out.println(celdas[j]);
+			}
 			
 		}
 	
 	}
 	
 	
-	@Test
-	public void testRegistroOferta(){
-		
-		//OBTENER LISTAS TOTALES (DAO)
-		OfertaDao ofertaDao= new OfertaDaoImp();
-		List<Oferta>listaOfertas=ofertaDao.listaOfertasTotal();
-		
-		UsuarioDao usuarioDao= new UsuarioDaoImp();
-		List<Usuario>listaUsuarios=usuarioDao.listaUsuariosTotal();
-		
-		//SE SETEA LA LLAVE PRIMARIA DE OFERTA_VENTA
-		OfertaVentaId id= new OfertaVentaId	(listaOfertas.get(0).getId().getCOferta(), new Short("1"), listaUsuarios.get(0).getId().getEmail(), listaOfertas.get(0).getId().getCEmpresa());
 	
-		Usuario usuario= new Usuario();
-		usuario=listaUsuarios.get(0);
+	//@Test
+	public void testRegistroOfertaVenta(){
 		
-		//SE INICIALIZAN LOS DATOS DE OFERTA_VENTA
-		OfertaVenta objOfertaVenta= new OfertaVenta(id, listaOfertas.get(0), usuario, "EF");
-		
-		//LLAMADA AL SERVICIO DE OFERTAS
 		OfertaServiceImp servicio= new OfertaServiceImp();
-		Assert.assertEquals(1, servicio.registroOfertaVenta(objOfertaVenta));
+		Assert.assertEquals(1, servicio.registroOfertaVenta(1, "1", 1, "orellana@sss.com", "EF"));
+		
+		
 	}
-*/
+
+	/*
 	@Test
 	public void testListaOfertasVencer(){
 		OfertaServiceImp servicio= new OfertaServiceImp();
@@ -80,4 +66,6 @@ public class OfertaWebServiceTest {
 		}
 	
 	}
+	*/
+	
 }

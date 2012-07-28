@@ -18,14 +18,14 @@ public class OfertaServiceImp implements OfertaService{
 	OfertaDao dao= new OfertaDaoImp();
 	
 	
-	public List<Oferta> listaOfertas(){
-		return dao.listaOfertas();
+	public String[] listaOfertasDelDia(){
+		return dao.listaOfertasDelDia();
 	}
 
 
-	public int registroOfertaVenta(OfertaVenta objOfertaVenta) {
+	public int registroOfertaVenta(int codEmpresa,String codOferta,int codLinea,String email,String codMedioPago) {
 	
-		return dao.registroOfertaVenta(objOfertaVenta);
+		return dao.registroOfertaVenta(codEmpresa,codOferta,codLinea,email,codMedioPago);
 	}
 	
 	public List<Oferta> listaOfertasPorVencer(int dias){
