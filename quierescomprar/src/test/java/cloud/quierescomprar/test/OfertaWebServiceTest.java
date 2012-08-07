@@ -1,24 +1,16 @@
 package cloud.quierescomprar.test;
 
-import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import cloud.quierescomprar.dao.OfertaDao;
-import cloud.quierescomprar.dao.OfertaDaoImp;
-import cloud.quierescomprar.dao.UsuarioDao;
-import cloud.quierescomprar.dao.UsuarioDaoImp;
-import cloud.quierescomprar.model.Oferta;
-import cloud.quierescomprar.model.OfertaVenta;
-import cloud.quierescomprar.model.OfertaVentaId;
-import cloud.quierescomprar.model.Usuario;
+
 import cloud.quierescomprar.service.OfertaServiceImp;
 
 public class OfertaWebServiceTest {
 	
 	
-	@Test
+	//@Test
 	public void testListaOfertasDelDia() {
 		OfertaServiceImp servicio= new OfertaServiceImp();
 		Assert.assertEquals(2, servicio.listaOfertasDelDia().length);
@@ -46,6 +38,28 @@ public class OfertaWebServiceTest {
 		
 		
 	}
+	
+	
+	@Test
+	public void testListaOfertasPorVencer() {
+		OfertaServiceImp servicio= new OfertaServiceImp();
+		int tamano=servicio.listaOfertasPorVencer(19).length;
+		Assert.assertEquals(1, tamano);
+		
+		//IMPRESION DE RESULTADOS EN CONSOLA
+		String fila="";
+		for(int i=0;i<tamano;i++){
+			fila=servicio.listaOfertasPorVencer(19)[i];
+			String[]celdas=fila.split("#");
+			for(int j=0;j<celdas.length;j++){
+				System.out.println(celdas[j]);
+			}
+			
+		}
+	
+	}
+	
+	
 
 	/*
 	@Test

@@ -28,7 +28,7 @@ public class OfertaServiceImp implements OfertaService{
 		return dao.registroOfertaVenta(codEmpresa,codOferta,codLinea,email,codMedioPago);
 	}
 	
-	public List<Oferta> listaOfertasPorVencer(int dias){
+	public  String[] listaOfertasPorVencer(int dias){
 		return dao.listaOfertasPorVencer(dias);
 	}
 }

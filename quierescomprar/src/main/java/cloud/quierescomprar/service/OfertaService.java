@@ -26,7 +26,7 @@ public interface OfertaService {
 			@WebParam(name="codMedioPago")String codMedioPago);
 	
 	// Codigo Kid Rivera
-	public List<Oferta> listaOfertasPorVencer(@WebParam(name="dias") int dias);
+	public String[] listaOfertasPorVencer(@WebParam(name="dias") int dias);
 	
 	
 }
